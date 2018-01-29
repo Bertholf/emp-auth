@@ -1,0 +1,31 @@
+### PHP ###
+Homestead.json
+Homestead.yaml
+/.idea
+
+### Laravel ###
+.env
+/vendor
+/node_modules
+/public/hot
+/public/storage
+/public/uploads
+/public/build
+/storage/cache
+/storage/public
+/storage/*.key
+/storage/*.pub
+_ide_helper.php
+/laravel-echo-server.json
+/.vagrant
+
+### Logs ###
+npm-debug.log
+yarn-error.log
+
+### Mac & IDE ####
+.DS_Store
+/.idea
+
+#Sami
+/cache
