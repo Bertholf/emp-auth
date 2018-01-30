@@ -19,7 +19,7 @@ _ide_helper.php
 /laravel-echo-server.json
 /.vagrant
 
-### Logs ###cd
+### Logs ###
 npm-debug.log
 yarn-error.log
 

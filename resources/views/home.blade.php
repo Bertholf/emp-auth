@@ -15,7 +15,14 @@
                     @endif
 
                     You are logged in!
+                    <h2>Clients</h2>
                     <passport-clients></passport-clients>
+                    <hr />
+                    <h2>Authorized Clients</h2>
+                    <passport-authorized-clients></passport-authorized-clients>
+                    <hr />
+                    <h2>Personal Access Token</h2>
+                    <passport-personal-access-tokens></passport-personal-access-tokens>
 
                 </div>
             </div>
