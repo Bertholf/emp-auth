@@ -43,23 +43,25 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @guest
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            <li><a href="{{ route('common.auth.login') }}">{{ trans('auth.action.login.label') }}</a></li>
+                            @if(config('empauthable.users.registration'))
+                            <li><a href="{{ route('common.auth.register') }}">{{ trans('auth.action.register.label') }}</a></li>
+                            @endif
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                    {{ Auth::user()->name_first }} {{ Auth::user()->name_last }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu">
                                     <li>
-                                        <a href="{{ route('logout') }}"
+                                        <a href="{{ route('common.auth.logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                            Logout
+                                            {{ trans('auth.action.logout.label') }}
                                         </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        <form id="logout-form" action="{{ route('common.auth.logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
@@ -70,6 +72,8 @@
                 </div>
             </div>
         </nav>
+        @include('layouts._partials.alerts')
+        {!! Breadcrumbs::show() !!}
 
         @yield('content')
     </div>

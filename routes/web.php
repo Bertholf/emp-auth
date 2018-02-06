@@ -11,10 +11,25 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+/**
+ * Empire Global
+ */
 
-Auth::routes();
+    Route::namespace('Common')->group(function () {
+        require base_path('routes/Web/Common/auth.php');
+    });
 
-Route::get('/home', 'HomeController@index')->name('home');
+    // Development Routes
+    if (App::environment('local')) {
+        require base_path('routes/Web/Common/development.php');
+    }
+
+
+/**
+ * App Specific
+ */
+
+    require base_path('routes/Web/dashboard.php');
+
+    // Keep Marketing controller last to handle catch-all
+    require base_path('routes/Web/marketing.php');

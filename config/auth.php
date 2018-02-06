@@ -67,7 +67,7 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\Common\User\User::class,
         ],
 
         // 'users' => [
@@ -94,7 +94,7 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'password_resets',
+            'table' => 'user_password_resets', //config('common.auth.tables.user_password_resets_table'),
             'expire' => 60,
         ],
     ],

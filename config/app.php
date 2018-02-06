@@ -226,6 +226,16 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        /*
+		 * Third Party Aliases
+		 */
+        'Html' => Collective\Html\HtmlFacade::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Breadcrumbs' => App\Common\Libraries\Breadcrumbs::class,
+        'SEO' => App\Common\Libraries\Facades\SEOTools::class,
+        'Robots' => App\Common\Libraries\Facades\Robots::class,
+        //'Sitemap' => Watson\Sitemap\Facades\Sitemap::class,
+
     ],
 
 ];
