@@ -275,27 +275,27 @@ if (!function_exists('checkSsoProvider')) {
         $socialite_links  = '';
 
         if (strlen(getenv('BITBUCKET_CLIENT_ID'))) {
-            $socialite_enable[] = link_to_route('auth.login.social', trans('auth.login_with', ['social_media' => 'Bit Bucket']), 'bitbucket');
+            $socialite_enable[] = link_to_route('common.auth.login.social', trans('auth.login_with', ['social_media' => 'Bit Bucket']), 'bitbucket');
         }
 
         if (strlen(getenv('FACEBOOK_CLIENT_ID'))) {
-            $socialite_enable[] = link_to_route('auth.login.social', trans('auth.login_with', ['social_media' => 'Facebook']), 'facebook');
+            $socialite_enable[] = link_to_route('common.auth.login.social', trans('auth.login_with', ['social_media' => 'Facebook']), 'facebook');
         }
 
         if (strlen(getenv('GOOGLE_CLIENT_ID'))) {
-            $socialite_enable[] = link_to_route('auth.login.social', trans('auth.login_with', ['social_media' => 'Google']), 'google');
+            $socialite_enable[] = link_to_route('common.auth.login.social', trans('auth.login_with', ['social_media' => 'Google']), 'google');
         }
 
         if (strlen(getenv('GITHUB_CLIENT_ID'))) {
-            $socialite_enable[] = link_to_route('auth.login.social', trans('auth.login_with', ['social_media' => 'Github']), 'github');
+            $socialite_enable[] = link_to_route('common.auth.login.social', trans('auth.login_with', ['social_media' => 'Github']), 'github');
         }
 
         if (strlen(getenv('LINKEDIN_CLIENT_ID'))) {
-            $socialite_enable[] = link_to_route('auth.login.social', trans('auth.login_with', ['social_media' => 'Linked In']), 'linkedin');
+            $socialite_enable[] = link_to_route('common.auth.login.social', trans('auth.login_with', ['social_media' => 'Linked In']), 'linkedin');
         }
 
         if (strlen(getenv('TWITTER_CLIENT_ID'))) {
-            $socialite_enable[] = link_to_route('auth.login.social', trans('auth.login_with', ['social_media' => 'Twitter']), 'twitter');
+            $socialite_enable[] = link_to_route('common.auth.login.social', trans('auth.login_with', ['social_media' => 'Twitter']), 'twitter');
         }
 
         for ($i = 0; $i < count($socialite_enable); $i++) {

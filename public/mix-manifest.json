@@ -1,4 +1,24 @@
 {
-    "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css"
+    "/js/app.js": "/js/app.js?id=f618ab06e6224ce8d9be",
+    "/css/core.css": "/css/core.css?id=d41d8cd98f00b204e980",
+    "/css/plugins.css": "/css/plugins.css?id=d41d8cd98f00b204e980",
+    "/css/fonts/fonts.css": "/css/fonts/fonts.css?id=d41d8cd98f00b204e980",
+    "/js/ie9.js": "/js/ie9.js?id=d41d8cd98f00b204e980",
+    "/js/ie10.js": "/js/ie10.js?id=d41d8cd98f00b204e980",
+    "/js/header.js": "/js/header.js?id=d41d8cd98f00b204e980",
+    "/js/core.js": "/js/core.js?id=d41d8cd98f00b204e980",
+    "/js/plugins.js": "/js/plugins.js?id=d41d8cd98f00b204e980",
+    "/js/star_plugin.js": "/js/star_plugin.js?id=d41d8cd98f00b204e980",
+    "/js/scripts.js": "/js/scripts.js?id=d41d8cd98f00b204e980",
+    "/js/config.js": "/js/config.js?id=d41d8cd98f00b204e980",
+    "/js/page.js": "/js/page.js?id=d41d8cd98f00b204e980",
+    "/css/utility-sortable.css": "/css/utility-sortable.css?id=d41d8cd98f00b204e980",
+    "/js/utility-sortable.js": "/js/utility-sortable.js?id=d41d8cd98f00b204e980",
+    "/css/utility-wysiwyg.css": "/css/utility-wysiwyg.css?id=d41d8cd98f00b204e980",
+    "/js/utility-wysiwyg.js": "/js/utility-wysiwyg.js?id=d41d8cd98f00b204e980",
+    "/css/dropify.css": "/css/dropify.css?id=d41d8cd98f00b204e980",
+    "/js/dropify.js": "/js/dropify.js?id=d41d8cd98f00b204e980",
+    "/css/public.css": "/css/public.css?id=d41d8cd98f00b204e980",
+    "/css/auth.css": "/css/auth.css?id=d41d8cd98f00b204e980",
+    "/css/error.css": "/css/error.css?id=d41d8cd98f00b204e980"
 }

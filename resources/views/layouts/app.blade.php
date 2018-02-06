@@ -1,84 +1,103 @@
-<!DOCTYPE html>
-<html lang="{{ app()->getLocale() }}">
+<!doctype html>
+<html class="no-js js-menubar" lang="{{ app()->getLocale() }}">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    @yield('meta')
 
-    <!-- CSRF Token -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <link rel="shortcut icon" href="/favicon.ico" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="_token" content="{{ csrf_token() }}" />
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    @yield('before-styles-end')
+    <link rel="stylesheet" href="{{ mix('css/public.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/plugins.css') }}">
+    <link rel="stylesheet" href="{{ mix('css/fonts/fonts.css') }}">
+    <link rel='stylesheet' href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah">
+    @yield('after-styles-end')
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-</head>
-<body>
-    <div id="app">
-        <nav class="navbar navbar-default navbar-static-top">
-            <div class="container">
-                <div class="navbar-header">
+    @include('layouts._partials.ga')
 
-                    <!-- Collapsed Hamburger -->
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle Navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
+    <!--[if lt IE 9]>
+    <script src="{{ mix('js/ie9.js') }}"></script>
+    <![endif]-->
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
-                    </a>
-                </div>
-
-                <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="nav navbar-nav">
-                        &nbsp;
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li><a href="{{ route('common.auth.login') }}">{{ trans('auth.action.login.label') }}</a></li>
-                            @if(config('empauthable.users.registration'))
-                            <li><a href="{{ route('common.auth.register') }}">{{ trans('auth.action.register.label') }}</a></li>
-                            @endif
-                        @else
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                                    {{ Auth::user()->name_first }} {{ Auth::user()->name_last }} <span class="caret"></span>
-                                </a>
-
-                                <ul class="dropdown-menu">
-                                    <li>
-                                        <a href="{{ route('common.auth.logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            {{ trans('auth.action.logout.label') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('common.auth.logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        @include('layouts._partials.alerts')
-        {!! Breadcrumbs::show() !!}
-
-        @yield('content')
-    </div>
+    <!--[if lt IE 10]>
+    <script src="{{ mix('js/ie10.js') }}"></script>
+    <![endif]-->
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ mix('js/header.js') }}"></script>
+</head>
+<body class="public site-navbar-small site-menubar-hide {!! (!empty($body_class) ? $body_class : '') !!}">
+<!--[if lt IE 8]>
+<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div id="app" style="height: 100%">
+    @include('layouts._partials.header')
+
+    @if(!empty($splash) && $splash)
+    <div class="page">
+        <div class="page-content p-0">
+            @yield('content')
+        </div>
+    </div>
+    @else
+        <!-- Page -->
+        <div class="page">
+
+            @if (!Request::path('/blog')) <!-- Hide Breadcrumb on Blog pages -->
+            <div class="page-header">
+                {!! Breadcrumbs::show() !!}
+                @if(!empty($title))
+                <h1 class="page-title">{{ $title }}</h1>
+                @endif
+                <div class="page-header-actions">
+                    @yield('page-actions')
+                </div>
+            </div>
+            @endif
+
+            <div class="page-content">
+                @include('layouts._partials.alerts')
+                @yield('content')
+            </div>
+        </div>
+        <!-- End Page -->
+    @endif
+
+    @include('layouts._partials.footer')
+</div>
+
+@yield('before-scripts-end')
+<script src="{{ mix('js/core.js') }}"></script>
+@yield('after-core-end')
+<script src="{{ mix('js/plugins.js') }}"></script>
+@yield('after-plugins-end')
+<script src="{{ mix('js/scripts.js') }}"></script>
+@yield('after-scripts-end')
+<script src="{{ mix('js/config.js') }}"></script>
+@yield('after-config-end')
+<script src="{{ mix('js/page.js') }}"></script>
+@yield('after-page-end')
+<script src="{{ mix('js/app.js') }}"></script>
+@yield('after-app-end')
+<script>
+    SITE_CONFIG = { url: '{!! url('/') !!}', csrf_token: '{!! csrf_token(); !!}' };
+    @if(Auth::id())
+    // Get Current User (If Logged)
+    var currentUserId = {{ Auth::id() }};
+    @endif
+    // Ready Vue
+    (function(document, window, $) {
+        'use strict';
+        var Site = window.Site;
+        $(document).ready(function() {
+            Site.run();
+        });
+    })(document, window, jQuery);
+</script>
+@yield('after-inline-end')
 </body>
 </html>

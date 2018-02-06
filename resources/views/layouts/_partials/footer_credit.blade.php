@@ -1,0 +1,1 @@
+<p>Copyright &copy; {{ date('Y') }} <strong><a href="http://bertholfventures.com">Bertholf Ventures</a>.</strong> <br><span>{{ trans('common.legal.all_rights_reserved') }}</span> <span> / </span> @include('layouts._partials.footer_social')</p>
