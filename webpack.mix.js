@@ -222,5 +222,18 @@ function layout_topbar_path(file) {
         layout_path('examples/css/pages/errors.css'),
     ], 'public/css/error.css')
 
+
     // Version files
     .version()
+
+    // Copy fonts
+    .copy(global_path('fonts'), 'public/css/fonts')
+    .copy(global_path('vendor/flag-icon-css/flags'), 'public/css/flags', false)
+    .copy(global_path('vendor/summernote/summernote.ttf'), 'public/css', false)
+    .copy(global_path('vendor/summernote/summernote.woff'), 'public/css', false)
+
+    // Copy Dropify Fonts
+    .copy(global_path('vendor/dropify/dropify.eot'), 'public/css', false)
+    .copy(global_path('vendor/dropify/dropify.svg'), 'public/css', false)
+    .copy(global_path('vendor/dropify/dropify.ttf'), 'public/css', false)
+    .copy(global_path('vendor/dropify/dropify.woff'), 'public/css', false)
