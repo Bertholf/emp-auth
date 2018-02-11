@@ -9,8 +9,9 @@
         </button>
         <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
             <a href="/">
-                <img class="navbar-brand-logo unfold" src="/images/logo.png" title="{{ config('app.name') }}">
-                <img class="navbar-brand-logo fold" src="/images/logo-box.png" title="{{ config('app.name') }}">
+                EmpAUTHable
+                {{--<img class="navbar-brand-logo unfold" src="/images/logo.png" title="{{ config('app.name') }}">
+                <img class="navbar-brand-logo fold" src="/images/logo-box.png" title="{{ config('app.name') }}">--}}
             </a>
         </div>
         <!-- Search -->
@@ -48,7 +49,7 @@
             <!-- Navbar Toolbar Right -->
             <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
             @if(Auth::guest())
-                <li class="nav-item"><a href="{!! route('common.auth.login') !!}" class="nav-link">{{ trans('auth.login_button') }}</a></li>
+                <li class="nav-item"><a href="{!! route('common.auth.login') !!}" class="nav-link">{{ trans('auth.action.login.label') }}</a></li>
                 @if (config('auth.registration'))
                 <li class="nav-item"><a href="{!! route('auth.register') !!}" class="nav-link" target="_blank">{{ trans('auth.register_button') }}</a></li>
                 @endif
