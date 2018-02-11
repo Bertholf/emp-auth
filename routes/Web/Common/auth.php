@@ -15,10 +15,10 @@ Route::namespace('Auth')->group(function () {
         Route::name('common.auth.login.action')->post('login', 'LoginController@login');
 
         // Authenticate via SSO
-        Route::name('auth.login.social')->get('login/{provider}', 'SocialLoginController@login');
+        Route::name('common.auth.login.social')->get('login/{provider}', 'SocialLoginController@login');
 
         // Registration Routes
-        if (config('empauthable.users.registration')) {
+        if (config('common.users.registration')) {
         Route::name('common.auth.register')->get('register', 'RegisterController@showRegistrationForm');
         Route::name('common.auth.register.action')->post('register', 'RegisterController@register');
         }

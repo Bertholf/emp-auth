@@ -34,7 +34,7 @@ class RegisterController extends Controller
         $this->middleware('guest');
 
         // Where to redirect users after registering
-        if (config('empauthable.users.confirm_email')) {
+        if (config('common.users.confirm_email')) {
             // Redirect to login page if email confirmation required
             $this->redirectTo = route('common.auth.login');
         } else {

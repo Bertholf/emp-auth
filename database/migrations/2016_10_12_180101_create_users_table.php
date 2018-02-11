@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->tinyInteger('status')->default(1)->unsigned();
             $table->string('confirmation_code')->nullable();
-            $table->boolean('confirmed')->default(config('empauthable.users.confirm_email') ? false : true);
+            $table->boolean('confirmed')->default(config('common.users.confirm_email') ? false : true);
             $table->boolean('verified')->default(0); // Human Verified
             $table->string('language')->nullable();
             $table->string('timezone')->default('UTC');
