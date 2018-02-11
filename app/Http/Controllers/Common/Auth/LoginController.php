@@ -62,7 +62,7 @@ class LoginController extends Controller
         }
 
         // Get Social Links
-        $socialite_links = checkSsoProvider();
+        $socialite_links = check_sso_provider();
 
         // Configure Meta
         $meta = [
