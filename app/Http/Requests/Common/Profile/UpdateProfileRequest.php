@@ -45,7 +45,7 @@ class UpdateProfileRequest extends FormRequest
     public static function rules($action = 'update', $merge = [], $id = false)
     {
         $rules = self::$rules[$action];
-        $user_id = access()->user()->id;
+        $user_id = auth()->user()->id;
 
         if ($user_id) {
             foreach ($rules as &$rule) {

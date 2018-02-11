@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Actor\User\Auth;
+namespace App\Http\Controllers\Common\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\Common\User\User;
@@ -22,7 +22,7 @@ class ConfirmAccountController extends Controller
     {
         $this->user->confirmAccount($token);
 
-        if (access()->user()) {
+        if (auth()->user()) {
             // If logged in already just send to profile
             return redirect()->route('actor.user.profile')->withFlashSuccess(trans('actor.user.auth.exception.confirmation.success'));
         } else {
@@ -39,7 +39,7 @@ class ConfirmAccountController extends Controller
     {
         $user->notify(new UserNeedsConfirmation($user->confirmation_code));
 
-        if (access()->user()) {
+        if (auth()->user()) {
             // If logged in already just send to profile
             return redirect()->route('actor.user.profile')->withFlashSuccess(trans('actor.user.auth.exception.confirmation.resent'));
         } else {

@@ -32,7 +32,7 @@ class LoginController extends Controller
     public function redirectTo()
     {
         /* @TODO: Add Admin Access
-        if (access()->allow('view-backend')) {
+        if (auth()->allow('view-backend')) {
             return route('admin.dashboard');
         }
         */
@@ -81,64 +81,79 @@ class LoginController extends Controller
         return view('common.auth.login', compact('meta', 'token', 'socialite_links'));
     }
 
-
     /**
+     * The user has been authenticated.
+     *
      * @param Request $request
-     * @param \App\Models\Actor\User\User  $user
+     * @param         $user
+     *
      * @return \Illuminate\Http\RedirectResponse
      * @throws GeneralException
      */
     protected function authenticated(Request $request, $user)
     {
-        /**
+        // @TODO: Implement or remove: config('common.auth.settings.confirm_email')
+
+        /*
          * Check to see if the users account is confirmed and active
          */
+        if (! $user->isConfirmed()) {
+            auth()->logout();
 
-        // check config for user confirmation
-        if (config('common.auth.settings.confirm_email')) {
-            if (! $user->isConfirmed()) {
-                access()->logout();
-                throw new GeneralException(trans('auth.exception.confirmation.resend', ['user_id' => $user->id]));
-            } elseif (! $user->isActive()) {
-                access()->logout();
-                throw new GeneralException(trans('auth.exception.deactivated'));
+            // If the user is pending (account approval is on)
+            if ($user->isPending()) {
+                throw new GeneralException(__('auth.exception.confirmation.pending'));
             }
+
+            // Otherwise see if they want to resent the confirmation e-mail
+            throw new GeneralException(__('auth.exception.confirmation.resend', ['user_uuid' => $user->{$user->getUuidName()}]));
         } elseif (! $user->isActive()) {
-            access()->logout();
-            throw new GeneralException(trans('auth.exception.deactivated'));
+            auth()->logout();
+            throw new GeneralException(__('auth.exception.deactivated'));
         }
 
-        // Trigger Event
-        //event(new UserLoggedIn($user));
+        event(new UserLoggedIn($user));
 
-        // Return Redirect
+        // If only allowed one session at a time
+        if (config('access.users.single_login')) {
+            resolve(UserSessionRepository::class)->clearSessionExceptCurrent($user);
+        }
+
         return redirect()->intended($this->redirectPath());
+
     }
 
     /**
      * Log the user out of the application.
      *
-     * @param  Request  $request
+     * @param Request $request
+     *
      * @return \Illuminate\Http\Response
      */
     public function logout(Request $request)
     {
-
         /*
-        // Remove the socialite session variable if exists
-        if (app('session')->has(config('actor.socialite_session_name'))) {
-            app('session')->forget(config('actor.socialite_session_name'));
+         * Remove the socialite session variable if exists
+         */
+        if (app('session')->has(config('auth.settings.socialite_session_name'))) {
+            app('session')->forget(config('auth.settings.socialite_session_name'));
         }
 
-        // Remove any session data from backend
+        /*
+         * Remove any session data from backend
+         */
         app()->make(Auth::class)->flushTempSession();
 
-        // Trigger Event
-        //event(new UserLoggedOut($this->guard()->user()));
-        */
+        /*
+         * Fire event, Log out user, Redirect
+         */
+        event(new UserLoggedOut($request->user()));
 
-        // Laravel specific logic
-        Auth::logout();
+        /*
+         * Laravel specific logic
+         */
+        $this->guard()->logout();
+        $request->session()->invalidate();
 
         // Redirect back as unauthenticated
         return redirect('/');
@@ -149,12 +164,12 @@ class LoginController extends Controller
      */
     public function logoutAs()
     {
-        //If for some reason route is getting hit without someone already logged in
-        if (! access()->user()) {
+        // If for some reason route is getting hit without someone already logged in
+        if (! auth()->user()) {
             return redirect()->route('common.auth.login');
         }
 
-        //If admin id is set, relogin
+        // If admin id is set, relogin
         if (session()->has('admin_user_id') && session()->has('temp_user_id')) {
             // Save admin id
             $admin_id = session()->get('admin_user_id');
@@ -162,15 +177,16 @@ class LoginController extends Controller
             app()->make(Auth::class)->flushTempSession();
 
             // Re-login admin
-            access()->loginUsingId((int)$admin_id);
+            auth()->loginUsingId((int) $admin_id);
 
             // Redirect to backend user page
             return redirect('/'); // @TODO: ->route('admin.common.user.manage.index');
         } else {
             app()->make(Auth::class)->flushTempSession();
 
-            //Otherwise logout and redirect to login
-            access()->logout();
+            // Otherwise logout and redirect to login
+            auth()->logout();
+
             return redirect()->route('common.auth.login');
         }
     }

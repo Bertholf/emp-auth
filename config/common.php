@@ -15,16 +15,8 @@ return [
      */
 
 
-    // Email Token
+    // TEMP: Email Token
     'users_email_tokens_table' => 'user_email_tokens',
-
-    /*
-     * Socialite session variable name
-     * Contains the name of the currently logged in provider in the users session
-     * Makes it so social logins can not change passwords, etc.
-     */
-    'socialite_session_name' => 'socialite_provider',
-
 
 
 
@@ -85,6 +77,14 @@ return [
 
             // Application captcha specific settings
             'captcha' => env('AUTH_ENABLE_CAPCHA', false),
+
+            /*
+             * Socialite session variable name
+             * Contains the name of the currently logged in provider in the users session
+             * Makes it so social logins can not change passwords, etc.
+             */
+            'socialite_session_name' => 'socialite_provider',
+
         ],
     ],
 

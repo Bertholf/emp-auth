@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Actor\User\Auth;
+namespace App\Common\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Actor\User\Profile\ChangePasswordRequest;

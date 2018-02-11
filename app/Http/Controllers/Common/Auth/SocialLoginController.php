@@ -72,8 +72,8 @@ class SocialLoginController extends Controller
 		/**
 		 * User authenticated, check to see if they are active.
 		 */
-		if (! access()->user()->isActive()) {
-			access()->logout();
+		if (! auth()->user()->isActive()) {
+			auth()->logout();
 			throw new GeneralException(trans('auth.exception.deactivated'));
 		}
 

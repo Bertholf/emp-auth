@@ -17,7 +17,7 @@ class ChangePasswordRequest extends Request
      */
     public function authorize()
     {
-        return access()->user()->canChangePassword();
+        return auth()->user()->canChangePassword();
     }
 
     /**

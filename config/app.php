@@ -165,8 +165,10 @@ return [
         Illuminate\View\ViewServiceProvider::class,
 
         /*
-         * Package Service Providers...
+         * Common Service Providers...
          */
+        App\Common\Providers\ComposerServiceProvider::class,
+
 
         /*
          * Application Service Providers...
@@ -227,8 +229,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         /*
-		 * Third Party Aliases
-		 */
+         * Common Aliases
+         */
         'Html' => Collective\Html\HtmlFacade::class,
         'Form' => Collective\Html\FormFacade::class,
         'Breadcrumbs' => App\Common\Libraries\Breadcrumbs::class,

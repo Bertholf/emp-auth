@@ -13,6 +13,7 @@
         "laravel/passport": "^4.0",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
+        "spatie/laravel-permission": "^2.5",
         "laravelcollective/html": "^5.5"
     },
     "require-dev": {
@@ -56,6 +57,15 @@
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover"
+        ],
+        "clear-all": [
+            "composer dumpautoload -o",
+            "@php artisan optimize",
+            "@php artisan clear-compiled",
+            "@php artisan cache:clear",
+            "@php artisan route:clear",
+            "@php artisan view:clear",
+            "@php artisan config:clear"
         ]
     },
     "config": {

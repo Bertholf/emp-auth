@@ -1,9 +1,9 @@
 @if (config('locale.status') && count(config('locale.languages')) > 1)
 <li class="nav-item dropdown">
 	<a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" data-animation="scale-up" aria-expanded="false" role="button">
-		@if(access()->user())
-			@if(!empty(access()->user()->language))
-			<span class="flag flag-icon flag-icon-{{ access()->user()->language }}"></span>
+		@if(auth()->user())
+			@if(!empty(auth()->user()->language))
+			<span class="flag flag-icon flag-icon-{{ auth()->user()->language }}"></span>
 			@else
 			<span class="flag flag-icon flag-icon-us"></span>
 			@endif

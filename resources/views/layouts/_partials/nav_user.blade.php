@@ -8,7 +8,7 @@
 		<div class="dropdown-menu" role="menu">
 			<a class="dropdown-item" href="{!! route('common.dashboard') !!}" role="menuitem"><i class="fas fa-tachometer-alt fa-fw" aria-hidden="true"></i> {{ trans('common.tabs.dashboard') }}</a>
 			@if(config('social-network.enable_following'))
-			<a class="dropdown-item" href="{!! route('actor.user.profile.show', access()->user()->name_slug) !!}" role="menuitem"><i class="fas fa-eye fa-fw" aria-hidden="true"></i> {{ trans('actor.user.selfmanage.profile_view') }}</a>
+			<a class="dropdown-item" href="{!! route('actor.user.profile.show', auth()->user()->name_slug) !!}" role="menuitem"><i class="fas fa-eye fa-fw" aria-hidden="true"></i> {{ trans('actor.user.selfmanage.profile_view') }}</a>
 			@endif
 			<a class="dropdown-item" href="{!! route('actor.user.profile') !!}" role="menuitem"><i class="fas fa-cogs fa-fw" aria-hidden="true"></i> {{ trans('actor.user.selfmanage.account') }}</a>
 			<a class="dropdown-item" href="{!! route('actor.team.index') !!}" role="menuitem"><i class="fas fa-briefcase fa-fw" aria-hidden="true"></i> {{ trans('common.tabs.teams') }}</a>
