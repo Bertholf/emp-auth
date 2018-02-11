@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
-    "description": "The Laravel Framework.",
-    "keywords": ["framework", "laravel"],
+    "name": "bertholf/emp-auth",
+    "description": "Empauthable.",
+    "keywords": ["empire", "laravel"],
     "license": "MIT",
     "type": "project",
     "require": {
