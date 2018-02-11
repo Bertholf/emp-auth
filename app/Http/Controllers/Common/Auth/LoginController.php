@@ -29,7 +29,7 @@ class LoginController extends Controller
      * Where to redirect users after login
      * @return string
      */
-    public function redirectPath()
+    public function redirectTo()
     {
         /* @TODO: Add Admin Access
         if (access()->allow('view-backend')) {

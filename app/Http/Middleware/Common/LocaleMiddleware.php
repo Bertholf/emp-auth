@@ -5,10 +5,6 @@ namespace App\Http\Middleware\Common;
 use Carbon\Carbon;
 use Closure;
 
-/**
- * Class LocaleMiddleware
- * @package App\Http\Middleware
- */
 class LocaleMiddleware
 {
 	/**
