@@ -2,15 +2,15 @@
 
 namespace App\Models\Common\User;
 
-use App\Models\Common\Team\Traits\Attribute\UserTeamAttribute;
-use App\Models\Common\Team\Traits\Relationship\UserTeamRelationship;
+//use App\Models\Common\Team\Traits\Attribute\UserTeamAttribute;
+//use App\Models\Common\Team\Traits\Relationship\UserTeamRelationship;
 use App\Models\Common\User\Traits\Attribute\UserAttribute;
 use App\Models\Common\User\Traits\Relationship\UserRelationship;
 use App\Models\Common\User\Traits\Scope\UserScope;
 use App\Models\Common\User\Traits\UserAccess;
 use App\Models\Common\User\Traits\UserSendPasswordReset;
-use App\Models\App\Messaging\Messagable;
-use App\Models\App\Timeline\Traits\Timelineable;
+//use App\Models\App\Messaging\Messagable;
+//use App\Models\App\Timeline\Traits\Timelineable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -23,13 +23,13 @@ class User extends Authenticatable
         UserScope,
         UserAccess,
         UserAttribute,
-        UserTeamAttribute,
+        //UserTeamAttribute,
         UserRelationship,
-        UserTeamRelationship,
+        //UserTeamRelationship,
         UserSendPasswordReset,
-        Notifiable,
-        Timelineable,
-        Messagable;
+        Notifiable; //,
+        //Timelineable,
+        //Messagable;
 
     /**
      * Protected Values
