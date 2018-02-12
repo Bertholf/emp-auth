@@ -13,7 +13,7 @@ class CreateUserWalletTable extends Migration
      */
     public function up()
     {
-        Schema::connection('empauthable')->create(config('common.wallet.tables.user_wallet_table'), function (Blueprint $table) {
+        Schema::connection('empauthable')->create(config('emp-auth.wallet.tables.user_wallet_table'), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->string('type');
@@ -30,6 +30,6 @@ class CreateUserWalletTable extends Migration
      */
     public function down()
     {
-        Schema::connection('empauthable')->drop(config('common.wallet.tables.user_wallet_table'));
+        Schema::connection('empauthable')->drop(config('emp-auth.wallet.tables.user_wallet_table'));
     }
 }

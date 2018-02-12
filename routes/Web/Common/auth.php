@@ -18,7 +18,7 @@ Route::namespace('Auth')->group(function () {
         Route::name('common.auth.login.social')->get('login/{provider}', 'SocialLoginController@login');
 
         // Registration Routes
-        if (config('common.users.registration')) {
+        if (config('emp-auth.users.registration')) {
         Route::name('common.auth.register')->get('register', 'RegisterController@showRegistrationForm');
         Route::name('common.auth.register.action')->post('register', 'RegisterController@register');
         }

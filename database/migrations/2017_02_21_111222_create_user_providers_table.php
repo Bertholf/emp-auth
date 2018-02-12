@@ -13,7 +13,7 @@ class CreateUserProvidersTable extends Migration
      */
     public function up()
     {
-        Schema::connection('empauthable')->create(config('common.auth.tables.user_oauth_providers_table'), function (Blueprint $table) {
+        Schema::connection('empauthable')->create(config('emp-auth.auth.tables.user_oauth_providers_table'), function (Blueprint $table) {
             $table->integer('user_id');
             $table->string('provider');
             $table->string('oauth_provider_id');
@@ -31,6 +31,6 @@ class CreateUserProvidersTable extends Migration
      */
     public function down()
     {
-        Schema::connection('empauthable')->dropIfExists(config('common.auth.tables.user_oauth_providers_table'));
+        Schema::connection('empauthable')->dropIfExists(config('emp-auth.auth.tables.user_oauth_providers_table'));
     }
 }

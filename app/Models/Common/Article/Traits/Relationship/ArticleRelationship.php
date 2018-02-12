@@ -2,7 +2,7 @@
 
 namespace App\Models\Common\Article\Traits\Relationship;
 
-use App\Models\Actor\User\User;
+use App\Models\Common\User\User;
 
 /**
  * Class ArticleRelationship

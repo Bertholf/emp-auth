@@ -3,7 +3,7 @@
 namespace App\Common\Http\Controllers\Profile;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Actor\User\Profile\ChangePasswordRequest;
+use App\Http\Requests\Common\User\Profile\ChangePasswordRequest;
 
 class ChangePasswordController extends Controller
 {

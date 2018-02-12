@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Actor\User\Profile;
+namespace App\Http\Requests\Common\User\Profile;
 
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
  * Class UpdateProfileRequest
- * @package App\Http\Requests\Actor\User
+ * @package App\Http\Requests\Common\User
  */
 class UpdateProfileRequest extends FormRequest
 {

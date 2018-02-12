@@ -92,7 +92,7 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        // @TODO: Implement or remove: config('common.auth.settings.confirm_email')
+        // @TODO: Implement or remove: config('emp-auth.auth.settings.confirm_email')
 
         /*
          * Check to see if the users account is confirmed and active
@@ -112,7 +112,8 @@ class LoginController extends Controller
             throw new GeneralException(__('auth.exception.deactivated'));
         }
 
-        event(new UserLoggedIn($user));
+        // @TODO: Restore Event Logging
+        // event(new UserLoggedIn($user));
 
         // If only allowed one session at a time
         if (config('access.users.single_login')) {

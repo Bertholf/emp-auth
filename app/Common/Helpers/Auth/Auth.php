@@ -2,9 +2,6 @@
 
 namespace App\Common\Helpers\Auth;
 
-/**
- * Class Auth.
- */
 class Auth
 {
     /**

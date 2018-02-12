@@ -12,14 +12,14 @@ class CreateUserMetaTable extends Migration
      */
     public function up()
     {
-        Schema::connection('empauthable')->create(config('common.profile.tables.user_metas_table'), function (Blueprint $table) {
+        Schema::connection('empauthable')->create(config('emp-auth.profile.tables.user_metas_table'), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('field_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->text('value');
             $table->timestamps();
         });
-        echo 'Created Table: ' . config('common.auth.tables.user_metas_table') .';'. PHP_EOL;
+        echo 'Created Table: ' . config('emp-auth.auth.tables.user_metas_table') .';'. PHP_EOL;
     }
 
     /**
@@ -29,6 +29,6 @@ class CreateUserMetaTable extends Migration
      */
     public function down()
     {
-        Schema::connection('empauthable')->dropIfExists(config('common.auth.tables.user_metas_table'));
+        Schema::connection('empauthable')->dropIfExists(config('emp-auth.auth.tables.user_metas_table'));
     }
 }

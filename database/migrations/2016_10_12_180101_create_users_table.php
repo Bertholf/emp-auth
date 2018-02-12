@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
-        Schema::connection('empauthable')->create(config('common.profile.tables.users_table'), function (Blueprint $table) {
+        Schema::connection('empauthable')->create(config('emp-auth.profile.tables.users_table'), function (Blueprint $table) {
             $table->increments('id');
             $table->string('name_first');
             $table->string('name_last');
@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->string('password')->nullable();
             $table->tinyInteger('status')->default(1)->unsigned();
             $table->string('confirmation_code')->nullable();
-            $table->boolean('confirmed')->default(config('common.users.confirm_email') ? false : true);
+            $table->boolean('confirmed')->default(config('emp-auth.users.confirm_email') ? false : true);
             $table->boolean('verified')->default(0); // Human Verified
             $table->string('language')->nullable();
             $table->string('timezone')->default('UTC');
@@ -36,9 +36,9 @@ class CreateUsersTable extends Migration
             // Add Foreign/Unique/Index
             $table->unique('name_slug', 'users_name_slug_unique');
             $table->unique('email', 'users_email_unique');
-            $table->foreign('referring_user_id')->references('id')->on(config('common.profile.tables.users_table'))->onDelete('restrict')->onUpdate('restrict');
+            $table->foreign('referring_user_id')->references('id')->on(config('emp-auth.profile.tables.users_table'))->onDelete('restrict')->onUpdate('restrict');
         });
-        echo 'Created Table: '. config('common.profile.tables.users_table') . PHP_EOL;
+        echo 'Created Table: '. config('emp-auth.profile.tables.users_table') . PHP_EOL;
     }
 
     /**
@@ -48,6 +48,6 @@ class CreateUsersTable extends Migration
      */
     public function down()
     {
-        Schema::connection('empauthable')->dropIfExists(config('common.profile.tables.users_table'));
+        Schema::connection('empauthable')->dropIfExists(config('emp-auth.profile.tables.users_table'));
     }
 }

@@ -16,12 +16,12 @@ class CreatePasswordResetsTable extends Migration
      */
     public function up()
     {
-        Schema::connection('empauthable')->create(config('common.auth.tables.user_password_resets_table'), function (Blueprint $table) {
+        Schema::connection('empauthable')->create(config('emp-auth.auth.tables.user_password_resets_table'), function (Blueprint $table) {
             $table->string('email')->index();
             $table->string('token')->index();
             $table->timestamp('created_at');
         });
-        echo 'Created Table: '. config('common.auth.tables.user_password_resets_table') . PHP_EOL;
+        echo 'Created Table: '. config('emp-auth.auth.tables.user_password_resets_table') . PHP_EOL;
     }
 
     /**
@@ -31,6 +31,6 @@ class CreatePasswordResetsTable extends Migration
      */
     public function down()
     {
-        Schema::connection('empauthable')->dropIfExists(config('common.auth.tables.user_password_resets_table'));
+        Schema::connection('empauthable')->dropIfExists(config('emp-auth.auth.tables.user_password_resets_table'));
     }
 }

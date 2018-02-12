@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers\Common\Auth;
 
-//use App\Events\Actor\User\UserLoggedIn;
+//use App\Events\Common\User\UserLoggedIn;
 use App\Exceptions\GeneralException;
-//use App\Helpers\Actor\User\Socialite as SocialiteHelper;
+//use App\Helpers\Common\User\Socialite as SocialiteHelper;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Laravel\Socialite\Facades\Socialite;
 
 /**
  * Class SocialLoginController
- * @package App\Http\Controllers\Actor\User\Auth
+ * @package App\Http\Controllers\Common\User\Auth
  */
 class SocialLoginController extends Controller
 {
@@ -85,7 +85,7 @@ class SocialLoginController extends Controller
 		/**
 		 * Set session variable so we know which provider user is logged in as, if ever needed
 		 */
-		session([config('common.socialite_session_name') => $provider]);
+		session([config('emp-auth.socialite_session_name') => $provider]);
 
 		/**
 		 * Return to the intended url or default to the class property

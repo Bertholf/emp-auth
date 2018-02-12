@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Events\Backend\Auth\Role;
+namespace App\Common\Events\Admin\Auth;
 
+use App\Models\Common\Role\Role;
 use Illuminate\Queue\SerializesModels;
 
-/**
- * Class RoleDeleted.
- */
-class RoleDeleted
+class RoleUpdated
 {
     use SerializesModels;
 
@@ -19,7 +17,7 @@ class RoleDeleted
     /**
      * @param $role
      */
-    public function __construct($role)
+    public function __construct(Role $role)
     {
         $this->role = $role;
     }

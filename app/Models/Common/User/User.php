@@ -2,16 +2,34 @@
 
 namespace App\Models\Common\User;
 
-use App\Models\Common\User\Traits\UserTraits;
+use App\Models\Common\Team\Traits\Attribute\UserTeamAttribute;
+use App\Models\Common\Team\Traits\Relationship\UserTeamRelationship;
+use App\Models\Common\User\Traits\Attribute\UserAttribute;
+use App\Models\Common\User\Traits\Relationship\UserRelationship;
+use App\Models\Common\User\Traits\Scope\UserScope;
+use App\Models\Common\User\Traits\UserAccess;
+use App\Models\Common\User\Traits\UserSendPasswordReset;
+use App\Models\App\Messaging\Messagable;
+use App\Models\App\Timeline\Traits\Timelineable;
 use Laravel\Passport\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
     use HasApiTokens,
-        UserTraits,
-        Notifiable;
+        SoftDeletes,
+        UserScope,
+        UserAccess,
+        UserAttribute,
+        UserTeamAttribute,
+        UserRelationship,
+        UserTeamRelationship,
+        UserSendPasswordReset,
+        Notifiable,
+        Timelineable,
+        Messagable;
 
     /**
      * Protected Values
@@ -65,8 +83,43 @@ class User extends Authenticatable
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        $this->table = config('common.profile.tables.users_table');
+        $this->table = config('emp-auth.profile.tables.users_table');
         $this->connection = 'empauthable';
     }
+
+
+    // @TODO v @TODO v @TODO v @TODO v @TODO v @TODO v @TODO v @TODO
+    // @TODO: Sort out & clean up
+
+
+    public function setOauthFields($oauthFields)
+    {
+        $this->oauthFields = $oauthFields;
+    }
+
+    public function getOauthFields()
+    {
+        return $this->oauthFields;
+    }
+
+    /**
+     * Route notifications for the mail channel.
+     *
+     * @return string
+     */
+    public function routeNotificationForMail()
+    {
+        return $this->email;
+    }
+
+    // @TODO Describe
+    public function findForPassport($username)
+    {
+        return self::where('name_slug', $username)->first(); // change column name whatever we use in credentials
+    }
+
+
+
+
 
 }

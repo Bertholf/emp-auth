@@ -13,8 +13,8 @@ class CreateUserSocialsTable extends Migration
      */
     public function up()
     {
-        echo config('common.auth.tables.user_logins_table');
-        Schema::connection('empauthable')->create(config('common.auth.tables.user_logins_table'), function (Blueprint $table) {
+        echo config('emp-auth.auth.tables.user_logins_table');
+        Schema::connection('empauthable')->create(config('emp-auth.auth.tables.user_logins_table'), function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('provider', 32);
@@ -26,7 +26,7 @@ class CreateUserSocialsTable extends Migration
             // Add Foreign/Unique/Index
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
-        echo 'Created Table: '. config('common.auth.tables.user_logins_table') . PHP_EOL;
+        echo 'Created Table: '. config('emp-auth.auth.tables.user_logins_table') . PHP_EOL;
     }
 
     /**
@@ -39,13 +39,13 @@ class CreateUserSocialsTable extends Migration
         /**
          * Remove Foreign/Unique/Index
          */
-        Schema::connection('empauthable')->table(config('common.auth.tables.user_logins_table'), function (Blueprint $table) {
-            //$table->dropForeign(config('common.auth.tables.user_logins_table') . '_user_id_foreign');
+        Schema::connection('empauthable')->table(config('emp-auth.auth.tables.user_logins_table'), function (Blueprint $table) {
+            //$table->dropForeign(config('emp-auth.auth.tables.user_logins_table') . '_user_id_foreign');
         });
 
         /**
          * Drop tables
          */
-        Schema::connection('empauthable')->dropIfExists(config('common.auth.tables.user_logins_table'));
+        Schema::connection('empauthable')->dropIfExists(config('emp-auth.auth.tables.user_logins_table'));
     }
 }

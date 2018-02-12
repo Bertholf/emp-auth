@@ -31,7 +31,7 @@ class UserTableSeeder extends Seeder
             $name_slug = $value[2];
             $email = $value[3];
             $password = $value[4];
-            $confirmed = config('common.users.confirm_email') ? 0 : 1;
+            $confirmed = config('emp-auth.users.confirm_email') ? 0 : 1;
             $confirmation_code = md5(uniqid(mt_rand(), true));
             $verified = $value[5];
             $language = config('app.locale');

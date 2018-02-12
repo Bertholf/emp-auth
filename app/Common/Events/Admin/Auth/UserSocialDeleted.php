@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Events\Backend\Auth\User;
+namespace App\Common\Events\Admin\Auth;
 
+use App\Models\Common\User\User;
 use Illuminate\Queue\SerializesModels;
 
-/**
- * Class UserSocialDeleted.
- */
 class UserSocialDeleted
 {
     use SerializesModels;
@@ -27,7 +25,7 @@ class UserSocialDeleted
      * @param $user
      * @param $social
      */
-    public function __construct($user, $social)
+    public function __construct(User $user, $social)
     {
         $this->user = $user;
         $this->social = $social;

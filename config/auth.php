@@ -94,7 +94,7 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
-            'table' => 'user_password_resets', //config('common.auth.tables.user_password_resets_table'),
+            'table' => 'user_password_resets', //config('emp-auth.auth.tables.user_password_resets_table'),
             'expire' => 60,
         ],
     ],

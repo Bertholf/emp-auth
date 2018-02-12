@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\Actor\User\Profile;
+namespace App\Http\Requests\Common\User\Profile;
 
 use App\Http\Requests\Request;
 
 /**
  * Class ChangePasswordRequest
- * @package App\Http\Requests\Actor\User\Profile
+ * @package App\Http\Requests\Common\User\Profile
  */
 class ChangePasswordRequest extends Request
 {

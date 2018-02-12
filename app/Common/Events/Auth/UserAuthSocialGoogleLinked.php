@@ -1,25 +1,23 @@
 <?php
 
-namespace App\Events\Backend\Auth\User;
+namespace App\Common\Events\Auth;
 
+use App\Models\Common\User\User;
 use Illuminate\Queue\SerializesModels;
 
-/**
- * Class UserDeactivated.
- */
-class UserDeactivated
+class UserAuthSocialGoogleLinked
 {
     use SerializesModels;
 
     /**
-     * @var
+     * @var $user
      */
     public $user;
 
     /**
      * @param $user
      */
-    public function __construct($user)
+    public function __construct(User $user)
     {
         $this->user = $user;
     }

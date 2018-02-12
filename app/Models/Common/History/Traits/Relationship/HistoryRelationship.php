@@ -2,7 +2,7 @@
 
 namespace App\Models\Common\History\Traits\Relationship;
 
-use App\Models\Actor\User\User;
+use App\Models\Common\User\User;
 use App\Models\Common\History\HistoryType;
 
 /**

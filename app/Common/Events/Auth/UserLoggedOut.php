@@ -2,18 +2,15 @@
 
 namespace App\Common\Events\Auth;
 
-use App\Models\Auth\User;
+use App\Models\Common\User\User;
 use Illuminate\Queue\SerializesModels;
 
-/**
- * Class UserLoggedOut.
- */
 class UserLoggedOut
 {
     use SerializesModels;
 
     /**
-     * @var
+     * @var $user
      */
     public $user;
 

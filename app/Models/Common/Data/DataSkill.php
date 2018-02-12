@@ -2,7 +2,7 @@
 
 namespace App\Models\Common\Data;
 
-use App\Models\Actor\User\User;
+use App\Models\Common\User\User;
 use App\Models\Empire\Service\Service;
 use Dimsav\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Model;

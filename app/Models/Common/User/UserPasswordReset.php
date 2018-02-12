@@ -23,7 +23,7 @@ class UserPasswordReset extends Model
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        $this->table = config('common.auth.tables.user_password_resets_table');
+        $this->table = config('emp-auth.auth.tables.user_password_resets_table');
         $this->connection = 'empauthable';
     }
 
