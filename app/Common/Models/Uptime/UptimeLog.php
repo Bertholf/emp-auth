@@ -29,5 +29,6 @@ class UptimeLog extends Model
     {
         parent::__construct($attributes);
         $this->table = config('emp-marketaing.sites_uptime_logs_table');
+        $this->connection = config('database.connections.marketaing.database');
     }
 }

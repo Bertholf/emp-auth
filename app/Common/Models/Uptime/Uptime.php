@@ -42,5 +42,6 @@ class Uptime extends Model
     {
         parent::__construct($attributes);
         $this->table = config('emp-marketaing.sites_uptime_table');
+        $this->connection = config('database.connections.marketaing.database');
     }
 }

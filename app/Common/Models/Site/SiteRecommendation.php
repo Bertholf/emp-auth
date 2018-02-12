@@ -46,7 +46,9 @@ class SiteRecommendation extends Model
     {
         parent::__construct($attributes);
         $this->table = config('emp-marketaing.sites_recommendations_table');
+        $this->connection = config('database.connections.marketaing.database');
     }
+
 
     public function getLargestImpactAttribute()
     {

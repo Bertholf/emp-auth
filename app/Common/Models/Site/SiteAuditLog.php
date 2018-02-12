@@ -22,6 +22,12 @@ class SiteAuditLog extends Model
 
     protected $with = ['checks'];
 
+    public function __construct()
+    {
+      parent::__construct();
+      $this->connection = config('database.connections.marketaing.database');
+    }
+
     public function logUpdated()
     {
         $incomplete = $this->checks()

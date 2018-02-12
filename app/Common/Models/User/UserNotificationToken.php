@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class UserNotificationToken
- * @package App\Common\Models
+ * @package App\Models
  * @version February 21, 2017, 12:53 pm UTC
  */
 class UserNotificationToken extends Model

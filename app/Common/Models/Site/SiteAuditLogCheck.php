@@ -19,4 +19,10 @@ class SiteAuditLogCheck extends Model
         'notes' => 'json'
     ];
     protected $fillable = ['audit_id', 'check', 'title', 'status', 'started_at', 'completed_at', 'notes', ];
+    
+    public function __construct()
+    {
+      parent::__construct();
+      $this->connection = config('database.connections.marketaing.database');
+    }
 }

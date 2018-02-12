@@ -41,5 +41,6 @@ class UptimeNotification extends Model
     {
         parent::__construct($attributes);
         $this->table = config('emp-marketaing.sites_uptime_notified_table');
+        $this->connection = config('database.connections.marketaing.database');
     }
 }

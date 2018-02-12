@@ -23,4 +23,10 @@ class SiteUrl extends Model
     protected $fillable = [
         'site_id', 'path',
     ];
+
+    public function __construct()
+    {
+      parent::__construct();
+      $this->connection = config('database.connections.marketaing.database');
+    }
 }

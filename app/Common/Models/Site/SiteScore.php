@@ -29,4 +29,10 @@ class SiteScore extends Model
         'community_score' => 'float',
         'community_confidence' => 'float',
     ];
+
+    public function __construct()
+    {
+      parent::__construct();
+      $this->connection = config('database.connections.marketaing.database');
+    }
 }

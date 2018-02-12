@@ -49,7 +49,7 @@ class ServicePriceTierTranslation extends Model
     public function __construct(array $attributes = [])
     {
         parent::__construct($attributes);
-        $this->connection = config('database.empire');
+        $this->connection = config('database.connections.empire.database');
         $this->table = 'services_pricetiers_translations';
     }
 }

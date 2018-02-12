@@ -43,5 +43,6 @@ class SiteMetric extends Model
     {
         parent::__construct($attributes);
         $this->table = config('emp-marketaing.sites_metrics_table');
+        $this->connection = config('database.connections.marketaing.database');
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * Class UserFollower
- * @package App\Common\Models
+ * @package App\Models
  * @version February 23, 2017, 5:30 am UTC
  */
 class UserFollower extends Model

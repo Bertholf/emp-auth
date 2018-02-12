@@ -30,4 +30,10 @@ class SiteAuditSchedule extends Model
         }
         parent::asDateTime($value);
     }
+
+    public function __construct()
+    {
+      parent::__construct();
+      $this->connection = config('database.connections.marketaing.database');
+    }
 }

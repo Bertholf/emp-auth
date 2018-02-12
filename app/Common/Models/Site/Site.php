@@ -86,6 +86,7 @@ class Site extends Model
     {
         parent::__construct($attributes);
         $this->table = config('emp-marketaing.sites_table');
+        $this->connection = config('database.connections.marketaing.database');
         $this->hasher = new Hashids('DiyDifm Hash For Sites', 5);
     }
 

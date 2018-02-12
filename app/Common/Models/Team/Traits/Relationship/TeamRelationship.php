@@ -7,7 +7,7 @@ use App\Common\Models\Team\TeamConnect;
 use App\Common\Models\Team\TeamIdentity;
 use App\Common\Models\Team\TeamInvite;
 use App\Common\Models\User\User;
-use App\Common\Models\Site\Site;
+use App\Models\Marketaing\Site\Site;
 use App\Common\Models\Data\DataGoal;
 use App\Common\Models\Data\DataTech;
 
