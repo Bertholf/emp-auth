@@ -2,7 +2,7 @@
 
 namespace App\Common\Events\Auth;
 
-use App\Models\Common\User\User;
+use App\Common\Models\User\User;
 use Illuminate\Queue\SerializesModels;
 
 class UserAuthSocialTwitterLinked

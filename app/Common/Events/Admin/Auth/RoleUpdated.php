@@ -2,7 +2,7 @@
 
 namespace App\Common\Events\Admin\Auth;
 
-use App\Models\Common\Role\Role;
+use App\Common\Models\Role\Role;
 use Illuminate\Queue\SerializesModels;
 
 class RoleUpdated

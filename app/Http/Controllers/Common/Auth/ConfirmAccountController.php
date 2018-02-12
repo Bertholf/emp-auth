@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Common\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\Common\User\User;
+use App\Common\Models\User\User;
 //use App\Notifications\Common\User\UserNeedsConfirmation;
 
 class ConfirmAccountController extends Controller

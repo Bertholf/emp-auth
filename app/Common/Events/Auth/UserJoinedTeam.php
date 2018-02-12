@@ -2,7 +2,7 @@
 
 namespace App\Events\Common\Team;
 
-use App\Models\Common\User\User;
+use App\Common\Models\User\User;
 use Illuminate\Queue\SerializesModels;
 
 class UserJoinedTeam

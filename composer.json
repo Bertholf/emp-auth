@@ -12,8 +12,8 @@
         "laravel/framework": "5.5.*",
         "laravel/socialite": "^3.0",
         "laravel/tinker": "~1.0",
-        "laravel/passport": "~5.0",
         "spatie/laravel-permission": "^2.5",
+        "laravel/passport": "^4.0",
         "laravelcollective/html": "^5.5"
     },
     "require-dev": {

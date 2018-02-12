@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers\Common\Auth;
 
-use App\Models\Common\User\User;
-use App\Models\Common\User\UserPasswordReset;
+use App\Common\Models\User\User;
+use App\Common\Models\User\UserPasswordReset;
 use App\Http\Controllers\Controller;
 use App\Common\Libraries\Breadcrumbs;
 use Illuminate\Foundation\Auth\ResetsPasswords;
