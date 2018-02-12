@@ -26,5 +26,4 @@ class UserPasswordReset extends Model
         $this->table = config('emp-auth.auth.tables.user_password_resets_table');
         $this->connection = 'empauthable';
     }
-
 }

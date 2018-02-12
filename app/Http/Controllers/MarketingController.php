@@ -39,5 +39,4 @@ class MarketingController extends Controller
         // Return View
         return view('common.marketing.index', compact('meta'));
     }
-
 }

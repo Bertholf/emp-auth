@@ -71,5 +71,4 @@ class Handler extends ExceptionHandler
             ? response()->json(['message' => 'Unauthenticated.'], 401)
             : redirect()->guest(route('common.auth.login'));
     }
-
 }

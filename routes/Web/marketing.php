@@ -8,8 +8,8 @@ Route::middleware('web')->group(function () {
      |--------------------------------------------------------------------------
      */
 
-	// Homepage
-	Route::name('marketing.index')->get('/', 'MarketingController@index');
+    // Homepage
+    Route::name('marketing.index')->get('/', 'MarketingController@index');
     /*
 	// Company
 	Route::name('marketing.about')->get('about', 'MarketingController@about');
@@ -63,6 +63,4 @@ Route::middleware('web')->group(function () {
 
     // Sitemap
     // Robotstxt
-
-
 });

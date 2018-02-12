@@ -20,7 +20,7 @@ class DatabaseSeeder extends Seeder
 
 
         // Completed
-		$this->command->info('ALL DONE!');
+        $this->command->info('ALL DONE!');
 
         Model::reguard();
     }
