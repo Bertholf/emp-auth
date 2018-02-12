@@ -5,6 +5,7 @@ APP_KEY=
 APP_DEBUG=true
 APP_LOG_LEVEL=debug
 APP_URL=http://empauthable.com
+APP_TIMEZONE=America/Los_Angeles
 
 # I18N
 APP_LOCALE=en
