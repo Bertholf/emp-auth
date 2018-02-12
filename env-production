@@ -53,7 +53,7 @@ PUSHER_APP_CLUSTER=mt1
 # Facebook - https://developers.facebook.com/apps/
 FACEBOOK_CLIENT_ID=990832684371195
 FACEBOOK_CLIENT_SECRET=9d5e606e9294cd7c5718a5269caed770
-FACEBOOK_REDIRECT_URL=http://empauthable.test:8888/login/facebook/callback
+FACEBOOK_REDIRECT_URL=${APP_URL}/login/facebook/callback
 
 # Twitter - https://apps.twitter.com/app/new
 	# https://apps.twitter.com/app/{ID}/permissions
@@ -61,7 +61,7 @@ FACEBOOK_REDIRECT_URL=http://empauthable.test:8888/login/facebook/callback
 	# 2. In Additional Permissions, check "Request email addresses from users"
 TWITTER_CLIENT_ID=8s3R8CYsvt9dnbQUqitPKWmV5
 TWITTER_CLIENT_SECRET=KAcUNUMbYlZ5tmjBvNAzTuZMTt2qVF9FgVjylyuDpsZeIgdAiN
-TWITTER_REDIRECT_URL=http://empauthable.test:8888/login/twitter
+TWITTER_REDIRECT_URL=${APP_URL}/login/twitter
 
 # Google - https://console.developers.google.com/iam-admin/projects
 	# https://console.developers.google.com/apis/api/plus/overview?project={projectname}
@@ -73,7 +73,7 @@ TWITTER_REDIRECT_URL=http://empauthable.test:8888/login/twitter
 #GOOGLE_CLIENT_SECRET=zaYae136yJK8jmMWdTI5_WRW
 GOOGLE_CLIENT_ID=1013152400145-3bp39s718fpkjfknrmapkai1s3164uaj.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=5vqcMfbxig0j5Ief8_8J5hTF
-GOOGLE_REDIRECT_URL=http://empauthable.test:8888/login/google
+GOOGLE_REDIRECT_URL=${APP_URL}/login/google
 
 # Google Adwords
 GOOGLE_ADWORDS_TOKEN=_hVrt2FOaHAS4JWKXThYuw
@@ -85,9 +85,9 @@ GOOGLE_ADWORDS_CLIENT_SECRET=BmlF-C3jY8A4VUa-A_5HolZ0
 	# Check 'r_emailaddress'
 LINKEDIN_CLIENT_ID=75bbpro67tkyhf
 LINKEDIN_CLIENT_SECRET=rZzkP8SDm7orKMrf
-LINKEDIN_REDIRECT_URL=http://empauthable.test:8888/login/linkedin
+LINKEDIN_REDIRECT_URL=${APP_URL}/login/linkedin
 
 # GitHub - https://github.com/settings/applications/new
 GITHUB_CLIENT_ID=349cc4b2cf37d479053a
 GITHUB_CLIENT_SECRET=8e3197868589fd1e629c33d81e822068323a0392
-GITHUB_REDIRECT_URL=http://empauthable.test:8888/login/github
+GITHUB_REDIRECT_URL=${APP_URL}/login/github
