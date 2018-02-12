@@ -19,8 +19,8 @@ Route::namespace('Auth')->group(function () {
 
         // Registration Routes
         if (config('emp-auth.users.registration')) {
-        Route::name('common.auth.register')->get('register', 'RegisterController@showRegistrationForm');
-        Route::name('common.auth.register.action')->post('register', 'RegisterController@register');
+            Route::name('common.auth.register')->get('register', 'RegisterController@showRegistrationForm');
+            Route::name('common.auth.register.action')->post('register', 'RegisterController@register');
         }
 
         // Confirm Account Routes
@@ -54,8 +54,6 @@ Route::namespace('Auth')->group(function () {
     */
 
     Route::middleware('auth')->group(function () {
-
-
     });
 
     /*
@@ -121,5 +119,4 @@ Route::namespace('Auth')->group(function () {
             return response()->json(['error' => request('error')]);
         }
     });
-
 });

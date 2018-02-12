@@ -117,9 +117,4 @@ class User extends Authenticatable
     {
         return self::where('name_slug', $username)->first(); // change column name whatever we use in credentials
     }
-
-
-
-
-
 }

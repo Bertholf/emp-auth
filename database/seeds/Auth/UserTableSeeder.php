@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use App\Models\Common\User\User;
+
 //use App\Models\Common\User\UserSetting;
 //use App\Models\App\Timeline\Timeline;
 

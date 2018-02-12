@@ -80,5 +80,4 @@ class ResetPasswordController extends Controller
         // Return View
         return view('common.auth.passwords.reset', compact('meta', 'token'));
     }
-
 }

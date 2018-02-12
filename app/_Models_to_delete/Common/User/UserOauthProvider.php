@@ -30,5 +30,4 @@ class UserOauthProvider extends Model
         $this->table = config('emp-auth.auth.tables.user_oauth_providers_table');
         $this->connection = 'empauthable';
     }
-
 }

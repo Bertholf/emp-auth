@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Common\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Common\Models\User\User;
+
 //use App\Notifications\Common\User\UserNeedsConfirmation;
 
 class ConfirmAccountController extends Controller
